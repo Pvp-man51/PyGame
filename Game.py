@@ -16,11 +16,11 @@ screen = pygame.display.set_mode((600, 480))
 
 # Load the background image here. Make sure the file exists!
 
-#bg = pygame.image.load(os.path.join("./", "background.png"))
+bg = pygame.image.load(os.path.join("./", "background.png"))
 
 pygame.mouse.set_visible(0)
 
-pygame.display.set_caption('Game')
+pygame.display.set_caption('PyGame')
 
 
 # fix indentation
@@ -30,7 +30,7 @@ while True:
 
     clock.tick(60)
 
-    #screen.blit(bg, (0, 0))
+    screen.blit(bg, (0, 0))
 
     x, y = pygame.mouse.get_pos()
 
