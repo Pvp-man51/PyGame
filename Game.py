@@ -65,7 +65,7 @@ light_grey = (200, 200, 200)
 ball_speed_x = 7 * random.choice((1, -1))
 ball_speed_y = 7 * random.choice((1, -1))
 player_speed = 0
-opponent_speed = 7
+opponent_speed = 8
 
 # Text Variabels
 player_score = 0
@@ -80,14 +80,14 @@ while True:
             sys.exit()
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_DOWN:
-                player_speed += 7
+                player_speed += 8
             if event.key == pygame.K_UP:
-                player_speed -= 7
+                player_speed -= 8
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_DOWN:
-                player_speed -= 7
+                player_speed -= 8
             if event.key == pygame.K_UP:
-                player_speed += 7
+                player_speed += 8
 
     ball_movement()
     player_movement()
