@@ -1,0 +1,4 @@
+- größere/breiteren screen
+- verschiedene Modi 
+- quit button 
+- High score 
