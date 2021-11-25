@@ -37,7 +37,7 @@ while gameactive:
         if event.type == pygame.QUIT:
             gameactive = False
             print("Spieler hat Quit-Button betätigt")
-    '''   elif event.type == pygame.KEYDOWN:
+        elif event.type == pygame.KEYDOWN:
             print("Spieler hat Taste gedrückt")
             
             # Taste für Spieler 1
@@ -64,7 +64,7 @@ while gameactive:
         
         
         elif event.type == pygame.MOUSEBUTTONDOWN:
-            print("Spieler hast Maus abetätigt")    '''
+            print("Spieler hast Maus abetätigt")    
 
     # Spiellogik hier integrieren
 
