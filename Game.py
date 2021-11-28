@@ -19,7 +19,7 @@ class Player(Block):
             self.rect.bottom = screen_height
 
     def update(self, ball_group):
-        self.rect.y = self.movement
+        self.rect.y += self.movement
         self.screen_constrain()
 
 class Ball(Block):
@@ -158,7 +158,7 @@ score_sound = pygame.mixer.Sound("Sounds\Score.wav")
 middle_strip = pygame.Rect(screen_width/ 2 - 2, 0, 4, screen_height)
 
 # Game objects
-player = Player("Sprites\Paddle.png", screen_width - 20, screen_height/ 2 - 70, 8)
+player = Player("Sprites\Paddle.png", screen_width - 20, screen_height/ 2, 8)
 opponent = Opponent("Sprites\Paddle.png", 20, screen_height/2, 8)
 paddle_group = pygame.sprite.Group()
 paddle_group.add(player)
