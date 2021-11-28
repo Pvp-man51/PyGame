@@ -139,8 +139,9 @@ class GameManager:
         screen.blit(opponent_score, opponent_score_rect)            
 
 # General Setup
-pygame.mixer.pre_init(44100, -16, 2, 512)
-pygame.init()  
+pygame.mixer.pre_init(44100, -16, 2, 2048)
+pygame.init()
+pygame.mixer.init()
 clock = pygame.time.Clock()
 
 # Setting up the Window
@@ -148,6 +149,8 @@ screen_width = 1280
 screen_height = 960
 screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption("Pong")
+icon = pygame.image.load("Sprites\Ball.png")
+pygame.display.set_icon(icon)
 
 # Global Variabels
 bg_color = pygame.Color("#2F373F")
@@ -158,17 +161,22 @@ score_sound = pygame.mixer.Sound("Sounds\Score.wav")
 middle_strip = pygame.Rect(screen_width/ 2 - 2, 0, 4, screen_height)
 
 # Game objects
-player = Player("Sprites\Paddle.png", screen_width - 20, screen_height/ 2, 8)
-opponent = Opponent("Sprites\Paddle.png", 20, screen_height/2, 8)
+player = Player("Sprites\Paddle.png", screen_width - 20, screen_height/ 2, 10)
+opponent = Opponent("Sprites\Paddle.png", 20, screen_height/2, 10)
 paddle_group = pygame.sprite.Group()
 paddle_group.add(player)
 paddle_group.add(opponent)
 
-ball = Ball("Sprites\Ball.png", screen_width/ 2, screen_height/ 2, 7, 7, paddle_group)
+ball = Ball("Sprites\Ball.png", screen_width/ 2, screen_height/ 2, 8, 8, paddle_group)
 ball_sprite = pygame.sprite.GroupSingle()
 ball_sprite.add(ball)
 
 game_manager = GameManager(ball_sprite, paddle_group)
+
+# Load and play music
+# pygame.mixer.music.load("Sounds\Music1.mp3")
+# pygame.mixer.music.play()
+# pygame.event.wait()
 
 while True:
 
