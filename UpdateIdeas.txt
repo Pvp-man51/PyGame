@@ -1,4 +1,4 @@
 - größere/breiteren screen
 - verschiedene Modi 
-- quit button 
+- quit button # reicht es wenn wir es einfach auf "esc" tun?
 - High score 
