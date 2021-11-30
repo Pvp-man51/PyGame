@@ -174,9 +174,9 @@ ball_sprite.add(ball)
 game_manager = GameManager(ball_sprite, paddle_group)
 
 #load and play music
-#pygame.mixer.music.load("Sounds\Music1.mp3")
-#pygame.mixer.music.play(-1,0.0)
-#pygame.event.wait()
+pygame.mixer.music.load('sounds\soundtrack.mp3')
+pygame.mixer.music.play(-1,0.0)
+pygame.mixer.music.set_volume(.6)
 
 while True:
 
