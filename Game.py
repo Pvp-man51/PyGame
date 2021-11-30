@@ -192,31 +192,18 @@ while True:
                 sys.exit()
 
             #Arrow keys movement
-            if event.key == pygame.K_DOWN:
+            if event.key == pygame.K_DOWN or event.key == pygame.K_s:
                 player.movement += player.speed
-            if event.key == pygame.K_UP:
+            if event.key == pygame.K_UP or event.key == pygame.K_w:
                 player.movement -= player.speed
             
-            # W A S D movement
-            if event.key == pygame.K_w:
-                player.movement -= player.speed
-            if event.key == pygame.K_s:
-                player.movement += player.speed
-
         if event.type == pygame.KEYUP:
 
             #Arrow keys movement
-            if event.key == pygame.K_DOWN:
+            if event.key == pygame.K_DOWN or event.key == pygame.K_s:
                 player.movement -= player.speed
-            if event.key == pygame.K_UP:
+            if event.key == pygame.K_UP or event.key == pygame.K_w:
                 player.movement += player.speed
-
-            # W A S D movement
-            if event.key == pygame.K_w:
-                player.movement += player.speed
-            if event.key == pygame.K_s:
-                player.movement -= player.speed
-
 
     # Background
     screen.fill(bg_color)
