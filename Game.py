@@ -108,17 +108,26 @@ class GameManager:
         self.opponent_score = 0
         self.ball_group = ball_group
         self.paddle_group = paddle_group
+        self.startGame = False
     
     def run_game(self):
-        # Drawing the game objects
-        self.paddle_group.draw(screen)
-        self.ball_group.draw(screen)
+        if self.startGame == True:
+            # Drawing the game objects
+            self.paddle_group.draw(screen)
+            self.ball_group.draw(screen)
 
-        # Updating the game objects
-        self.paddle_group.update(self.ball_group)
-        self.ball_group.update()
-        self.reset_ball()
-        self.draw_score()
+            # Updating the game objects
+            self.paddle_group.update(self.ball_group)
+            self.ball_group.update()
+            self.reset_ball()
+            self.draw_score()
+        else:
+            # Titel text
+            start_title = game_font.render(str("Press 'space' to Start Game"), True, accent_color)
+            start_title_rect = start_title.get_rect(center = (screen_width/ 2, screen_height / 2))
+
+            pygame.draw.rect(screen, bg_color, start_title_rect)
+            screen.blit(start_title, start_title_rect)
 
     def reset_ball(self):
         if self.ball_group.sprite.rect.right >= screen_width:
@@ -132,7 +141,7 @@ class GameManager:
         player_score = game_font.render(str(self.player_score), True, accent_color)
         opponent_score = game_font.render(str(self.opponent_score), True, accent_color)
 
-        player_score_rect = player_score.get_rect(midleft = (screen_width/ 2 +40, screen_height/ 2))
+        player_score_rect = player_score.get_rect(midleft = (screen_width/ 2 + 40, screen_height/ 2))
         opponent_score_rect = opponent_score.get_rect(midright = (screen_width/ 2 - 40, screen_height/ 2))
 
         screen.blit(player_score, player_score_rect)
@@ -187,6 +196,9 @@ while True:
             pygame.quit()
             sys.exit()
         elif event.type == pygame.KEYDOWN:
+
+            if event.key == pygame.K_SPACE and game_manager.startGame == False:
+                game_manager.startGame = True
 
             if event.key == pygame.K_ESCAPE:
                 pygame.quit()
